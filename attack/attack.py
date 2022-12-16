@@ -11,7 +11,7 @@ class Attack(ABC):
         pass
 
 
-class AttackWithBound(Attack):
+class FasterRCNNAttackWithBound(Attack):
     """Abstract class for all attacks restricted in bound."""
 
     @abstractmethod
