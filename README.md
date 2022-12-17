@@ -1,7 +1,27 @@
-# Adversarial-Composition
-Compose desired image with data such that will cause pretrained models misbehave.
+# Pytorch Adversarial Object-detection Toolbox
 
-## FasterRCNN
+### Simple toolbox for adversarial attacks on object detector.
+
+## Features
+1. Simple interface for understanding adversarial.
+2. Flexible api that could customize:
+    1. attack budget
+    1. steps
+    1. distance criterion
+    1. attack region
+    1. targeted/ untarged
+    1. target desired losses (box regression/ classification ...)
+3. Both end-to-end version and wrapped version implemented, if you have models implemented yourself, you can refer to attacks in `src/attack/pgd.py`.
+
+## Files
+> src/main.py
+    > Demo file for generating adversarial images.
+> src/attack/*
+    > Attack implementation includes FGSM, iFGSM, and PGD in L-inf, L2, L1 norm.
+> src/util.py
+    > Provide label mapping for drawing bounding boxes.
+
+## Sample model output
 - Model in eval
     [
         {
