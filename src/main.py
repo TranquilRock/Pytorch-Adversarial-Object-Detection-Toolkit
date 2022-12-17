@@ -121,35 +121,3 @@ if __name__ == "__main__":
         weights=FasterRCNN_ResNet50_FPN_V2_Weights.DEFAULT, box_score_thresh=0.9
     )
     main(model)
-
-
-# Before attack:
-{
-    "boxes": torch.Tensor(
-        [
-            [415.1139, 150.9288, 545.6686, 414.7146],
-            [1.0540, 174.2773, 134.2004, 353.4934],
-            [95.4936, 180.1695, 235.8846, 291.5413],
-            [182.9897, 178.8918, 257.3154, 255.9231],
-            [416.5106, 185.4812, 445.5121, 261.6208],
-            [333.7903, 192.2578, 351.0151, 259.7337],
-            [437.7644, 292.8659, 501.6620, 405.6678],
-        ]
-    ),
-    "labels": torch.Tensor([1, 3, 3, 3, 1, 1, 28]),
-    "scores": torch.Tensor(
-        [0.9997, 0.9987, 0.9964, 0.9496, 0.9340, 0.9179, 0.9155]
-    ),
-}
-# Desired input detected, performing targeted attack.
-# Starts attack...
-# Step 100/100
-# Successed!
-# After attack:
-{
-    "boxes": torch.Tensor(
-        [[200.6219, 201.4173, 401.9137, 400.1595]],
-    ),
-    "labels": torch.Tensor([24]),
-    "scores": torch.Tensor([0.9892]),
-}
