@@ -21,6 +21,17 @@
 - src/util.py
     - Provide label mapping for drawing bounding boxes.
 
+## Attack Example
+- [Img from](https://cdn.ftvnews.com.tw/manasystem/FileData/News/c5c1bd35-fcf0-4ab1-a70a-46fd51603220.png)
+
+### Before
+![Before](https://github.com/TranquilRock/Pytorch-Adversarial-Object-detection-Toolbox/blob/main/assets/result.png?raw=true)
+
+### After
+- Budget: 2/255
+- Distance: L-inf
+![Attacked](https://github.com/TranquilRock/Pytorch-Adversarial-Object-detection-Toolbox/blob/main/assets/attacked_result.png?raw=true)
+
 ## Sample model output
 ```python=
 # Model in eval
