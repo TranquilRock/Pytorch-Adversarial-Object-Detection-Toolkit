@@ -27,7 +27,8 @@
 ### Before
 ![Before](https://github.com/TranquilRock/Pytorch-Adversarial-Object-detection-Toolbox/blob/main/assets/result.png?raw=true)
 
-### After
+### After (Targeted)
+- Target: Zebra
 - Budget: 2/255
 - Distance: L-inf
 ![Attacked](https://github.com/TranquilRock/Pytorch-Adversarial-Object-detection-Toolbox/blob/main/assets/attacked_result.png?raw=true)
