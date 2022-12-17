@@ -15,11 +15,11 @@
 
 ## Files
 > src/main.py
-    > Demo file for generating adversarial images.
+>> Demo file for generating adversarial images.
 > src/attack/*
-    > Attack implementation includes FGSM, iFGSM, and PGD in L-inf, L2, L1 norm.
+>> Attack implementation includes FGSM, iFGSM, and PGD in L-inf, L2, L1 norm.
 > src/util.py
-    > Provide label mapping for drawing bounding boxes.
+>> Provide label mapping for drawing bounding boxes.
 
 ## Sample model output
 - Model in eval
