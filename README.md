@@ -1,4 +1,4 @@
-# Pytorch Adversarial Object-detection Toolbox
+# Pytorch Adversarial Object-detection Toolkit
 
 ### Simple toolbox for adversarial attacks on object detector.
 
