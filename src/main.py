@@ -47,7 +47,9 @@ model = ssdlite320_mobilenet_v3_large(
 
 
 ASSETS_ROOT = "../assets"
+SAVE_ROOT = "../assets/bounded"
 DEVICE = torch.device("cuda:0")
+SAMPLE_BOUND = (60, 320, 110, 430)  # You can set a desired region to perform attack.
 
 
 def get_image(
@@ -74,11 +76,10 @@ def main(model: nn.Module) -> None:
 
     attack = ObjectDetectionLinfPGD(
         model=model,
-        eps=2 / 255,
-        nb_iter=100,
+        eps=255 / 255,
+        nb_iter=1000,
     )
 
-    bound = (60, 320, 110, 430)  # You can set a desired region to perform attack.
     attacked_img = attack(
         x=img,
         y=[
@@ -89,7 +90,7 @@ def main(model: nn.Module) -> None:
                 "labels": torch.Tensor([24, 24, 24]).to(DEVICE).to(torch.int64),
             }
         ],
-        # bound=bound,
+        bound=SAMPLE_BOUND,
     )
 
     outputs = model(attacked_img)
@@ -105,15 +106,15 @@ def main(model: nn.Module) -> None:
         (attacked_img.squeeze(0) * 255).to(torch.uint8),
         boxes.detach(),
         labels,
-        colors=["#0080FF" for _ in range(len(labels))],
-        font=f"{ASSETS_ROOT}/16020_FUTURAM.ttf",
-        font_size=24,
+        # colors=["#0080FF" for _ in range(len(labels))],
+        # font=f"{ASSETS_ROOT}/16020_FUTURAM.ttf",
+        # font_size=24,
     )
     result = result / 255
 
-    save_image(attacked_img, f"{ASSETS_ROOT}/attacked.png")
-    save_image(result, f"{ASSETS_ROOT}/attacked_result.png")
-    save_image((attacked_img - img) ** 2, f"{ASSETS_ROOT}/diff.png")
+    save_image(attacked_img, f"{SAVE_ROOT}/attacked.png")
+    save_image(result, f"{SAVE_ROOT}/attacked_result.png")
+    save_image((attacked_img - img) ** 2, f"{SAVE_ROOT}/diff.png")
 
 
 if __name__ == "__main__":
